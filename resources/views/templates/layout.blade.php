@@ -34,7 +34,10 @@
                         <a class="nav-link" href="{{ route('profile.index') }}">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <form method="POST" action="{{ route('auth.logout') }}">
+                            @csrf 
+                            <button type="submit" class="btn nav-link btn-link">Logout</button>
+                        </form>
                     </li>
                 @else
                     <li class="nav-item">
