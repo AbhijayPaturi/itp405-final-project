@@ -13,17 +13,17 @@
             <a class="navbar-brand" href="/">DJ Tutorial</a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
-                    <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a>
+                    <li class="nav-item {{ request()->routeIs('dj.home') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->routeIs('dj.home') ? 'active' : '' }}" href="{{ route('dj.home') }}">Home</a>
                     </li>
-                    <li class="nav-item {{ request()->is('/tutorials') ? 'active' : '' }}">
-                        <a class="nav-link {{ request()->is('/tutorials') ? 'active' : '' }}" href="/tutorials">Tutorials</a>
+                    <li class="nav-item {{ request()->routeIs('dj.index') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->routeIs('dj.index') ? 'active' : '' }}" href="{{ route('dj.index') }}">Tutorials</a>
                     </li>
-                    <li class="nav-item {{ request()->is('/review') ? 'active' : '' }}">
-                        <a class="nav-link {{ request()->is('/review') ? 'active' : '' }}" href="/review">Review</a>
+                    <li class="nav-item {{ request()->routeIs('reviews.index') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->routeIs('reviews.index') ? 'active' : '' }}" href="{{ route('reviews.index') }}">Review</a>
                     </li>
-                    <li class="nav-item {{ request()->is('/bookmarks') ? 'active' : '' }}">
-                        <a class="nav-link {{ request()->is('/bookmarks') ? 'active' : '' }}" href="/bookmarks">Bookmarks</a>
+                    <li class="nav-item {{ request()->routeIs('bookmarks.index') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->routeIs('bookmarks.index') ? 'active' : '' }}" href="{{ route('bookmarks.index') }}">Bookmarks</a>
                     </li>
                 </ul>
                 
