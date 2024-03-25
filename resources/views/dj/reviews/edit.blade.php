@@ -6,7 +6,15 @@
 
 @section('main')
     <div>
-        <h3 class="text-center mt-3">Tutorial Review</h3>
+        <div class="row mt-3">
+            <div class="col">
+                <a href="{{ route('tutorials.show', ['id' => $review->tutorial->id]) }}" class="btn btn-secondary">Back</a>
+            </div>
+            <div class="text-center">
+                <h3 class="text-center mt-3">Edit Tutorial Review</h3>
+            </div>
+        </div>
+        
         <form action="{{ route('reviews.update', ['id' => $review->id]) }}" method="POST">
             @csrf
             <div class="mb-3">

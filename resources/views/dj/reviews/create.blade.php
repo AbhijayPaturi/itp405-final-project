@@ -4,7 +4,14 @@
 
 @section('main')
     <div>
-        <h3 class="text-center mt-3">Tutorial Review</h3>
+        <div class="row mt-3">
+            <div class="col">
+                <a href="{{ route('tutorials.show', ['id' => $preSelectedTutorial->id]) }}" class="btn btn-secondary">Back</a>
+            </div>
+            <div class="text-center">
+                <h3 class="text-center mt-3">Create Tutorial Review</h3>
+            </div>
+        </div>
         <form action="{{ route('reviews.store') }}" method="POST">
         @csrf
         <div class="mb-3">

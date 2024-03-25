@@ -10,7 +10,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [TutorialController::class, 'home'])->name('dj.home');
 
-// Authentication 
+// Authentication and Registration
 Route::get('/register', [RegistrationController::class, 'index'])->name('registration.index');
 Route::post('/register', [RegistrationController::class, 'register'])->name('registration.create');
 
@@ -18,8 +18,11 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login'); 
 
 Route::middleware(['auth'])->group(function() { 
+    // Authentication and Registration
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+    // Tutorials
     Route::get('/tutorials/new', [TutorialController::class, 'create'])->name('tutorials.create');
 
     // Bookmarks
