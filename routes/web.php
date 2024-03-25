@@ -10,10 +10,6 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', [TutorialController::class, 'home'])->name('dj.home');
 
-// Reviews 
-Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
-
-
 // Authentication 
 Route::get('/register', [RegistrationController::class, 'index'])->name('registration.index');
 Route::post('/register', [RegistrationController::class, 'register'])->name('registration.create');
@@ -29,14 +25,23 @@ Route::middleware(['auth'])->group(function() {
     // Bookmarks
     Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
     Route::post('/bookmarks/{id}', [BookmarkController::class, 'unbookmark'])->name('bookmarks.unbookmark');
+
+    // Reviews 
+    Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
+    Route::get('/reviews/{id}', [ReviewController::class, 'create'])->name('reviews.create');
+    Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::post('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
+    Route::post('/reviews/{id}/delete', [ReviewController::class, 'delete'])->name('reviews.delete');
+
+    // Tutorials 
+    Route::post('/tutorials/{id}/delete', [TutorialController::class, 'delete'])->name('tutorials.delete');
 });
 
 // Tutorials
-Route::post('/tutorials/bookmark/{id}', [TutorialController::class, 'bookmark'])->name('tutorials.bookmark');
+Route::post('/tutorials/{id}/bookmark', [TutorialController::class, 'bookmark'])->name('tutorials.bookmark');
 
 Route::get('/tutorials', [TutorialController::class, 'index'])->name('tutorials.index');
 Route::post('/tutorials', [TutorialController::class, 'store'])->name('tutorials.store');
 
 Route::get('/tutorials/{id}', [TutorialController::class, 'show'])->name('tutorials.show');
-Route::post('/tutorials/delete/{id}', [TutorialController::class, 'delete'])->name('tutorials.delete');
 

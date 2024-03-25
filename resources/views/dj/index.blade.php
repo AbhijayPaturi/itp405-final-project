@@ -19,7 +19,7 @@
         <hr class="my-5">
         <div class="row mt-5 text-center align-items-center">
             <div class="col-6">
-                <a href="{{ route('reviews.index') }}" class="btn btn-primary">Write a Review</a>
+                <a href="{{ route('tutorials.index') }}" class="btn btn-primary">Write a Review</a>
             </div>
             <div class="col-6">
                 <h2>Reviews</h2>

@@ -60,7 +60,59 @@
         <p class="mt-3">{{ $tutorial->body }}</p>
         <h2 class="mt-5">Tips</h2>
         <ul>
-            <li class="mb-5">{{ $tutorial->tips }}</li>
+            <li>{{ $tutorial->tips }}</li>
+        </ul>
+        <hr>
+        <div class="row align-text-top">
+            <div class="col text-start">
+                <h2 class="">Reviews</h2>
+            </div>
+            <div class="col text-end">
+                <a href="{{ route('reviews.create', ['id' => $tutorial->id]) }}" class="btn btn-primary">Write a Review</a>
+            </div>
+        </div>
+        <ul class="mt-4 mb-5">
+            <section>
+                @for ($i = 0; $i < count($reviews); $i += 2)
+                    <div class="row">
+                        @for ($j = $i; $j < min($i + 2, count($reviews)); $j++)
+                            <div class="col-md-6 mb-4">
+                                <div class="card testimonial-card" style="height: 310px;">
+                                    <div class="card-body row">
+                                        <div class="col text-start">
+                                            <h4 class="mb-4">{{ $reviews[$j]->user->name }}</h4>
+                                        </div>
+                                        <div class="col text-end">
+                                            @if(Auth::check() && Auth::user()->id === $reviews[$j]->user->id)
+                                                <a href="{{ route('reviews.edit', ['id' => $reviews[$j]->id]) }}" class="btn btn-secondary">Edit</a>
+                                                <form action="{{ route('reviews.delete', ['id' => $reviews[$j]->id]) }}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            @endif
+                                        </div>
+                                        <div class="mb-3">
+                                            @for ($starNum = 1; $starNum < 6; $starNum++)
+                                                @if ($starNum <= $reviews[$j]->rating)
+                                                    <i class="fas fa-star"></i>
+                                                @else
+                                                    <i class="far fa-star"></i>
+                                                @endif
+                                            @endfor
+                                        </div>
+                                        <hr class="m-0" />
+                                        <p class="mt-2">
+                                            {{ $reviews[$j]->body }}
+                                        </p>
+                                        <p><em> Last updated on <?php echo date_format(date_create($reviews[$j]->updated_at), 'n/j/Y'); ?> at <?php echo date_format(date_create($reviews[$j]->updated_at), 'g:i A'); ?></em></p>
+                                        <p><em> Posted on <?php echo date_format(date_create($reviews[$j]->created_at), 'n/j/Y'); ?> at <?php echo date_format(date_create($reviews[$j]->created_at), 'g:i A'); ?></em></p>
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
+                    </div>
+                @endfor
+            </section>
         </ul>
     </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tutorial;
+use App\Models\Review;
 use App\Models\User;
 use Auth;
 
@@ -63,8 +64,13 @@ class TutorialController extends Controller
     {
         $tutorial = Tutorial::with(['user', 'users'])->find($tutorialId);
 
+        $reviews = Review::where('tutorial_id', "=", $tutorialId)->orderBy('updated_at', 'DESC')
+            ->with(['tutorial', 'user'])
+            ->get();
+
         return view('dj/tutorials/show', [
             'tutorial' => $tutorial,
+            'reviews' => $reviews,
         ]);
     }
 

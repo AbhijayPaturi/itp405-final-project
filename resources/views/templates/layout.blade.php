@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@yield('title')</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container my-3">
@@ -18,9 +19,6 @@
                     </li>
                     <li class="nav-item {{ request()->routeIs('tutorials.index') ? 'active' : '' }}">
                         <a class="nav-link {{ request()->routeIs('tutorials.index') ? 'active' : '' }}" href="{{ route('tutorials.index') }}">Tutorials</a>
-                    </li>
-                    <li class="nav-item {{ request()->routeIs('reviews.index') ? 'active' : '' }}">
-                        <a class="nav-link {{ request()->routeIs('reviews.index') ? 'active' : '' }}" href="{{ route('reviews.index') }}">Review</a>
                     </li>
                     <li class="nav-item {{ request()->routeIs('bookmarks.index') ? 'active' : '' }}">
                         <a class="nav-link {{ request()->routeIs('bookmarks.index') ? 'active' : '' }}" href="{{ route('bookmarks.index') }}">Bookmarks</a>
