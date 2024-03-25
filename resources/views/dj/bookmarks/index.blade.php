@@ -27,7 +27,7 @@
                                     <div class="col text-start m-3">
                                         <form action="{{ route('bookmarks.unbookmark', ['id' => $tutorial->id]) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-primary">Unbookmark</button>
+                                            <button type="submit" class="btn btn-danger">Unbookmark</button>
                                         </form>
                                     </div>
                                 </div>

@@ -13,7 +13,7 @@ class BookmarkController extends Controller
     {
         $user = Auth::user();
 
-        $bookmarks = $user->tutorials()
+        $bookmarks = $user->tutorials()->with(['user'])
             ->get();
 
         return view('dj/bookmarks/index', [
