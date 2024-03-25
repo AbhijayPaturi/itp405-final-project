@@ -32,11 +32,10 @@ Route::middleware(['auth'])->group(function() {
 });
 
 // Tutorials
-
 Route::post('/tutorials/bookmark/{id}', [TutorialController::class, 'bookmark'])->name('tutorials.bookmark');
 
 Route::get('/tutorials', [TutorialController::class, 'index'])->name('tutorials.index');
-Route::post('/tutorials/{userId}', [TutorialController::class, 'store'])->name('tutorials.store');
+Route::post('/tutorials', [TutorialController::class, 'store'])->name('tutorials.store');
 
 Route::get('/tutorials/{id}', [TutorialController::class, 'show'])->name('tutorials.show');
 Route::post('/tutorials/delete/{id}', [TutorialController::class, 'delete'])->name('tutorials.delete');

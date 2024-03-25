@@ -5,7 +5,7 @@
 @section('main')
     <h3 class="mt-4">New Tutorial</h3>  
     
-    <form action="{{ route('tutorials.store', ['userId' => Auth::user()->id]) }}" method="POST">
+    <form action="{{ route('tutorials.store') }}" method="POST">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Tutorial Title</label>

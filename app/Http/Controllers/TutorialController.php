@@ -34,14 +34,17 @@ class TutorialController extends Controller
         ]);
     }
 
-    public function store($userId, Request $request) 
+    public function store(Request $request) 
     {
         $request->validate([
-            'title' => 'required|min:6|max:15', 
+            'title' => 'required|min:6|max:25', 
             'photo_url' => 'required', 
             'body' => 'required|min:10|max:150', 
             'tips' => 'required|min:4|max:25'
         ]);
+
+        $userId = Auth::user()->id;
+        $user = User::find($userId);
 
         $tutorial = new Tutorial(); 
         $tutorial->title = $request->input('title');
@@ -50,8 +53,6 @@ class TutorialController extends Controller
         $tutorial->tips = $request->input('tips');
         $tutorial->user_id = $userId;
         $tutorial->save();
-
-        $user = User::find($userId);
 
         return redirect()
             ->route('tutorials.index')
