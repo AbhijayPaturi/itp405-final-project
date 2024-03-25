@@ -13,6 +13,9 @@
         </div>
         @error('name')
             <div class="mb-3"><small class="text-danger">{{ $message }}</small></div>
+            <div>
+                <ul><li class="text-danger">Need a space. Full name needed.</li></ul>
+            </div>
         @enderror
 
         <div class="mb-3">
@@ -28,12 +31,10 @@
             <input type="password" id="password" name="password" class="form-control" value="{{ old('password') }}">
         </div>
         @error('password')
-            <div>
-                <ul><li>Need at least one special character and number.</li></ul>
-            </div>
-        @enderror
-        @error('password')
             <div class="mb-3"><small class="text-danger">{{ $message }}</small></div>
+            <div>
+                <ul><li class="text-danger">Need at least one special character and number.</li></ul>
+            </div>
         @enderror
 
         <input type="submit" value="Register" class="btn btn-primary">
