@@ -38,10 +38,10 @@ class TutorialController extends Controller
     public function store(Request $request) 
     {
         $request->validate([
-            'title' => 'required|min:6|max:25', 
+            'title' => 'required|min:6|max:50', 
             'photo_url' => 'required', 
-            'body' => 'required|min:10|max:150', 
-            'tips' => 'required|min:4|max:25'
+            'body' => 'required|min:10|max:250', 
+            'tips' => 'required|min:4|max:50'
         ]);
 
         $userId = Auth::user()->id;
@@ -68,9 +68,13 @@ class TutorialController extends Controller
             ->with(['tutorial', 'user'])
             ->get();
 
+        $bookmarks = $tutorial->users()
+                            ->get();
+
         return view('dj/tutorials/show', [
             'tutorial' => $tutorial,
             'reviews' => $reviews,
+            'bookmarks' => $bookmarks,
         ]);
     }
 
