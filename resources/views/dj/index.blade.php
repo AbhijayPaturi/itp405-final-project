@@ -13,7 +13,7 @@
                 <p>You want to become a DJ? I know you do. I did too. But I didn't know where to start from. Hence, this web application. Browse through tutorials to get started on your DJ career. All you need to learn are these tricks to be able to start DJing at events!</p>
             </div>
             <div class="col-6">
-                <a href="{{ route('dj.index') }}" class="btn btn-primary">Browse</a>
+                <a href="{{ route('tutorials.index') }}" class="btn btn-primary">Browse</a>
             </div>
         </div>
         <hr class="my-5">

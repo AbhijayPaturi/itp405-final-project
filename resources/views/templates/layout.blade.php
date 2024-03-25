@@ -16,8 +16,8 @@
                     <li class="nav-item {{ request()->routeIs('dj.home') ? 'active' : '' }}">
                         <a class="nav-link {{ request()->routeIs('dj.home') ? 'active' : '' }}" href="{{ route('dj.home') }}">Home</a>
                     </li>
-                    <li class="nav-item {{ request()->routeIs('dj.index') ? 'active' : '' }}">
-                        <a class="nav-link {{ request()->routeIs('dj.index') ? 'active' : '' }}" href="{{ route('dj.index') }}">Tutorials</a>
+                    <li class="nav-item {{ request()->routeIs('tutorials.index') ? 'active' : '' }}">
+                        <a class="nav-link {{ request()->routeIs('tutorials.index') ? 'active' : '' }}" href="{{ route('tutorials.index') }}">Tutorials</a>
                     </li>
                     <li class="nav-item {{ request()->routeIs('reviews.index') ? 'active' : '' }}">
                         <a class="nav-link {{ request()->routeIs('reviews.index') ? 'active' : '' }}" href="{{ route('reviews.index') }}">Review</a>
@@ -49,6 +49,7 @@
                 @endif
             </ul>
         </nav>
+        <hr class="my-1">
         @yield('main') 
     </div>
 </body>
