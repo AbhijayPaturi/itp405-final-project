@@ -36,7 +36,8 @@
                     @endforeach
                 </div>
             @else
-                <h5 class="mt-3 text-center">No bookmarked dj tutorials created yet. Please browse and bookmark your favorite dj tutorials after logging in!</h5>
+                <h5 class="mt-5 text-center">No bookmarked dj tutorials created yet. Please browse and bookmark your favorite dj tutorials after logging in!</h5>
+                <div class="text-center mt-3"><a href="{{ route('tutorials.index') }}" class="btn btn-secondary">Browse</a></div>
             @endif
     </div>
 @endsection
