@@ -17,7 +17,7 @@
             @if(count($tutorials) > 0)
                 <div class="row row-cols-1 row-cols-md-3 mt-4">
                     @foreach($tutorials as $tutorial)
-                        <div class="col">
+                        <div class="col mb-4">
                             <a href="{{ route('tutorials.show', ['id' => $tutorial->id]) }}" class="card-link" style="text-decoration: none;">
                                 <div class="card h-100">
                                     <div class="card-body">

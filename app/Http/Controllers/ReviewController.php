@@ -70,7 +70,7 @@ class ReviewController extends Controller
             'rating' => 'required|numeric|min:1|max:5', 
         ]);
 
-        $review = Review::::with(['tutorial', 'user'])
+        $review = Review::with(['tutorial', 'user'])
                     ->find($reviewId);
         $review->tutorial_id = $request->input('tutorial');
         $review->body = $request->input('body');
