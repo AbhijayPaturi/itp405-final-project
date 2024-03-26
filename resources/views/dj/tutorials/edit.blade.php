@@ -22,7 +22,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Tutorial Title</label>
-                            <input type="text" name="title" id="title" class="form-control" value="{{ $tutorial->title }}" readonly>
+                            <input type="text" name="title" id="title" class="form-control" value="{{ old('title', $tutorial->title) }}">
                             @error('title')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

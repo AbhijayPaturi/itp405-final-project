@@ -144,6 +144,7 @@ class TutorialController extends Controller
 
         $tutorial = Tutorial::with(['user'])
                     ->find($tutorialId);
+        $tutorial->title = $request->input('title');
         $tutorial->photo_url = $request->input('photo_url');
         $tutorial->body = $request->input('body');
         $tutorial->tips = $request->input('tips');
