@@ -21,7 +21,7 @@
                             <a href="{{ route('tutorials.show', ['id' => $tutorial->id]) }}" class="card-link" style="text-decoration: none;">
                                 <div class="card h-100">
                                     <div class="card-body">
-                                        <img src="{{ $tutorial->photo_url }}" class="card-img" alt="Tutorial Image"
+                                        <img src="{{ $tutorial->photo_url }}" class="card-img" alt="DJ Tutorial Image"
                                         style="width: 100%; height: 200px;">
                                         <h5 class="card-title mt-3">{{ $tutorial->title }}</h5>
                                         <p class="card-text">Author: {{ $tutorial->user->name }}</p>

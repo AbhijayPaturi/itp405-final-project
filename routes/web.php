@@ -27,6 +27,7 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/tutorials/{id}/delete', [TutorialController::class, 'delete'])->name('tutorials.delete');
     Route::get('/tutorials/{id}/edit', [TutorialController::class, 'edit'])->name('tutorials.edit');
     Route::post('/tutorials/{id}', [TutorialController::class, 'update'])->name('tutorials.update');
+    Route::post('/tutorials', [TutorialController::class, 'store'])->name('tutorials.store');
 
     // Bookmarks
     Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
@@ -44,7 +45,6 @@ Route::middleware(['auth'])->group(function() {
 Route::post('/tutorials/{id}/bookmark', [TutorialController::class, 'bookmark'])->name('tutorials.bookmark');
 
 Route::get('/tutorials', [TutorialController::class, 'index'])->name('tutorials.index');
-Route::post('/tutorials', [TutorialController::class, 'store'])->name('tutorials.store');
 
 Route::get('/tutorials/{id}', [TutorialController::class, 'show'])->name('tutorials.show');
 
