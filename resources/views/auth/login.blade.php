@@ -16,25 +16,39 @@
         </div>
     @endif
 
-    <h3 class="mt-3">Login</h3>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h3 class="card-title text-center mb-3">Login</h3>
+                        <form method="post" action="{{ route('auth.login') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}">
+                                @error('email')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
 
-    <form class="mt-3" method="post" action="{{ route('auth.login') }}">
-        @csrf
-        <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" value="{{ old('email') }}">
-        </div>
-        @error('email')
-            <div class="mb-3"><small class="text-danger">{{ $message }}</small></div>
-        @enderror
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control" value="{{ old('password') }}">
+                                @error('password')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
 
-        <div class="mb-3">
-            <label class="form-label" for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" value="{{ old('password') }}">
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        @error('password')
-            <div class="mb-3"><small class="text-danger">{{ $message }}</small></div>
-        @enderror
-        <input type="submit" value="Login" class="btn btn-primary">
-    </form>
+    </div>
+
 @endsection
+
