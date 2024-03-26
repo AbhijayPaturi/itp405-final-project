@@ -40,7 +40,7 @@
                                 @enderror
                             </div>
 
-                            <div class="d-grid">
+                            <div>
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </div>
                         </form>
