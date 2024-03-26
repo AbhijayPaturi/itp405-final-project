@@ -58,7 +58,7 @@ class TutorialController extends Controller
 
         return redirect()
             ->route('tutorials.index')
-            ->with('success', "{$user->name} successfully created {$tutorial->title}.");
+            ->with('success', "{$user->name} successfully created '{$tutorial->title}'.");
     }
 
     public function show($tutorialId) 
@@ -113,13 +113,13 @@ class TutorialController extends Controller
         {
             return redirect()
                 ->route('tutorials.show', ['id' => $tutorialId])
-                ->with('success', "Successfully removed bookmark for {$tutorial->title}.");
+                ->with('success', "Successfully removed bookmark for '{$tutorial->title}'.");
         }
         else 
         {
             return redirect()
                 ->route('tutorials.show', ['id' => $tutorialId])
-                ->with('success', "Successfully bookmarked {$tutorial->title}.");
+                ->with('success', "Successfully bookmarked '{$tutorial->title}'.");
         }
     }
 

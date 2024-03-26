@@ -45,7 +45,7 @@ class ReviewController extends Controller
 
         return redirect()
             ->route('tutorials.show', ['id' => $request->input('tutorial')])
-            ->with('success', "{$user->name} successfully commented on {$tutorial->title} at " . date_format(date_create($review->created_at), 'n/j/Y \a\t g:i A') . ".");
+            ->with('success', "{$user->name} successfully commented on '{$tutorial->title}' at " . date_format(date_create($review->created_at), 'n/j/Y \a\t g:i A') . ".");
     }
 
     public function edit ($reviewId)
@@ -82,7 +82,7 @@ class ReviewController extends Controller
 
         return redirect()
             ->route('tutorials.show', ['id' => $request->input('tutorial')])
-            ->with('success', "{$user->name} successfully updated their comment on {$tutorial->title} that was posted on " . date_format(date_create($review->created_at), 'n/j/Y \a\t g:i A') . ".");
+            ->with('success', "{$user->name} successfully updated their comment on '{$tutorial->title}' that was posted on " . date_format(date_create($review->created_at), 'n/j/Y \a\t g:i A') . ".");
     }
 
     public function delete($reviewId)
@@ -95,6 +95,6 @@ class ReviewController extends Controller
         
         return redirect()
             ->route('tutorials.show', ['id' => $review->tutorial->id])
-            ->with('success', "{$user->name} successfully deleted their comment on {$tutorial->title} that was posted on " . date_format(date_create($review->created_at), 'n/j/Y \a\t g:i A') . ".");
+            ->with('success', "{$user->name} successfully deleted their comment on '{$tutorial->title}' that was posted on " . date_format(date_create($review->created_at), 'n/j/Y \a\t g:i A') . ".");
     }
 }
