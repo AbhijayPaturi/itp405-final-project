@@ -30,7 +30,6 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/tutorials', [TutorialController::class, 'store'])->name('tutorials.store');
 
     // Bookmarks
-    Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
     Route::post('/bookmarks/{id}', [BookmarkController::class, 'unbookmark'])->name('bookmarks.unbookmark');
 
     // Reviews 
@@ -40,6 +39,9 @@ Route::middleware(['auth'])->group(function() {
     Route::post('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
     Route::post('/reviews/{id}/delete', [ReviewController::class, 'delete'])->name('reviews.delete');
 });
+
+// Bookmarks
+Route::get('/bookmarks', [BookmarkController::class, 'index'])->name('bookmarks.index');
 
 // Tutorials
 Route::post('/tutorials/{id}/bookmark', [TutorialController::class, 'bookmark'])->name('tutorials.bookmark');

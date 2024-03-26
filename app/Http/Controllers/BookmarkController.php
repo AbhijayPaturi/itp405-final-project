@@ -11,10 +11,17 @@ class BookmarkController extends Controller
 {
     public function index() 
     {
-        $user = Auth::user();
+        if (Auth::check())
+        {
+            $user = Auth::user();
 
-        $bookmarks = $user->tutorials()->with(['user'])
-            ->get();
+            $bookmarks = $user->tutorials()->with(['user'])
+                ->get();
+        }
+        else 
+        {
+            $bookmarks = [];
+        }
 
         return view('dj/bookmarks/index', [
             'bookmarks' => $bookmarks,
