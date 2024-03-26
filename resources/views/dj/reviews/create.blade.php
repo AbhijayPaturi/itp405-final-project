@@ -1,6 +1,6 @@
 @extends('templates/layout')
 
-@section('title', 'Tutorial Reviews')
+@section('title', 'Create Tutorial Reviews')
 
 @section('main')
     <div>

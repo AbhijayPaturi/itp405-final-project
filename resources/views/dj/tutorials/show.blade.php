@@ -18,6 +18,7 @@
             </div>
             <div class="col text-end">
                 @if(Auth::check() && Auth::user()->id === $tutorial->user->id)
+                    <a href="{{ route('tutorials.edit', ['id' => $tutorial->id]) }}" type="submit" class="btn btn-secondary">Edit</a>
                     <form action="{{ route('tutorials.delete', ['id' => $tutorial->id]) }}" method="POST" style="display: inline;">
                         @csrf
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -59,11 +60,11 @@
         <h2 class="mt-3">Lesson</h2>
         <p class="mt-3">{{ $tutorial->body }}</p>
         <h2 class="mt-5">Tips</h2>
-        <ul>
+        <ul class="mb-4">
             <li>{{ $tutorial->tips }}</li>
         </ul>
         <hr>
-        <div class="row align-text-top">
+        <div class="row align-text-top mt-4">
             <div class="col text-start">
                 <h2 class="">Reviews</h2>
             </div>
@@ -71,7 +72,7 @@
                 <a href="{{ route('reviews.create', ['id' => $tutorial->id]) }}" class="btn btn-primary">Write a Review</a>
             </div>
         </div>
-        <ul class="mt-4 mb-5">
+        <ul class="mt-5 mb-5">
             <section>
                 @for ($i = 0; $i < count($reviews); $i += 2)
                     <div class="row">

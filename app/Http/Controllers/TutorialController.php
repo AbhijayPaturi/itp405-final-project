@@ -20,7 +20,7 @@ class TutorialController extends Controller
     public function index() 
     {
         $tutorials = Tutorial::with(['user'])
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('updated_at', 'DESC')
             ->get();
 
         return view('dj/tutorials/index', [
@@ -45,7 +45,6 @@ class TutorialController extends Controller
         ]);
 
         $userId = Auth::user()->id;
-        $user = User::find($userId);
 
         $tutorial = new Tutorial(); 
         $tutorial->title = $request->input('title');
@@ -54,6 +53,8 @@ class TutorialController extends Controller
         $tutorial->tips = $request->input('tips');
         $tutorial->user_id = $userId;
         $tutorial->save();
+
+        $user = $tutorial->user;
 
         return redirect()
             ->route('tutorials.index')
@@ -86,7 +87,7 @@ class TutorialController extends Controller
 
         return redirect()
             ->route('tutorials.index')
-            ->with('success', "Successfully deleted {$tutorial->title}.");
+            ->with('success', "Successfully deleted '{$tutorial->title}'.");
     }
 
     public function bookmark($tutorialId)
@@ -120,5 +121,38 @@ class TutorialController extends Controller
                 ->route('tutorials.show', ['id' => $tutorialId])
                 ->with('success', "Successfully bookmarked {$tutorial->title}.");
         }
+    }
+
+    public function edit ($tutorialId)
+    {
+        $tutorial = Tutorial::with(['user'])
+                    ->find($tutorialId);
+
+        return view('dj/tutorials/edit', [
+            'tutorial' => $tutorial,
+        ]);
+    }
+
+    public function update(Request $request, $tutorialId)
+    {
+        $request->validate([
+            'title' => 'required|min:6|max:50', 
+            'photo_url' => 'required', 
+            'body' => 'required|min:10|max:250', 
+            'tips' => 'required|min:4|max:50'
+        ]);
+
+        $tutorial = Tutorial::with(['user'])
+                    ->find($tutorialId);
+        $tutorial->photo_url = $request->input('photo_url');
+        $tutorial->body = $request->input('body');
+        $tutorial->tips = $request->input('tips');
+        $tutorial->save();
+
+        $user = $tutorial->user;
+
+        return redirect()
+            ->route('tutorials.show', ['id' => $tutorialId])
+            ->with('success', "{$user->name} successfully updated their tutorial '{$tutorial->title}' that was posted on " . date_format(date_create($tutorial->created_at), 'n/j/Y \a\t g:i A') . ".");
     }
 }

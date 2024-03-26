@@ -26,6 +26,7 @@
                                         <h5 class="card-title mt-3">{{ $tutorial->title }}</h5>
                                         <p class="card-text">Author: {{ $tutorial->user->name }}</p>
                                         <p class="card-text"><em> Posted on <?php echo date_format(date_create($tutorial->created_at), 'n/j/Y'); ?> at <?php echo date_format(date_create($tutorial->created_at), 'g:i A'); ?></em></p>
+                                        <p class="card-text"><em> Last updated on <?php echo date_format(date_create($tutorial->updated_at), 'n/j/Y'); ?> at <?php echo date_format(date_create($tutorial->updated_at), 'g:i A'); ?></em></p>
                                     </div>
                                 </div>
                             </a>
