@@ -1,6 +1,8 @@
 @extends('templates/layout')
 
-@section('title', 'Create Tutorial Reviews')
+@section('title')
+    Create Review for '{{ $preSelectedTutorial->title }}'
+@endsection
 
 @section('main')
     <div class="row justify-content-center">

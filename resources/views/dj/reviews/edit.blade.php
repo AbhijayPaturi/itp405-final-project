@@ -1,7 +1,7 @@
 @extends('templates/layout')
 
 @section('title')
-    Edit Review for {{ $review->tutorial->title }}
+    Edit Review for '{{ $review->tutorial->title }}'
 @endsection
 
 @section('main')

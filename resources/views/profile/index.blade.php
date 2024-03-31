@@ -1,6 +1,6 @@
 @extends('templates/layout')
 
-@section('title', 'Profile')
+@section('title', 'User Profile')
 
 @section('main')
 

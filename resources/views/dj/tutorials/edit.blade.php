@@ -1,7 +1,7 @@
 @extends('templates/layout')
 
 @section('title')
-    Edit Tutorial {{ $tutorial->title }}
+    Edit Tutorial '{{ $tutorial->title }}'
 @endsection
 
 @section('main')
