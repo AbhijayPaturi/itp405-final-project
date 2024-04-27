@@ -37,10 +37,7 @@
                 </div>
             @else
                 <h5 class="mt-5 text-center">No bookmarked dj tutorials created yet. Please bookmark your favorite dj tutorials after logging in!</h5>
-                <div class="d-flex justify-content-center m-3">
-                    <div class="text-center m-2"><a href="{{ route('login') }}" class="btn btn-primary">Log In</a></div>
-                    <div class="text-center m-2"><a href="{{ route('tutorials.index') }}" class="btn btn-secondary">Browse</a></div>
-                </div>
+                <div class="text-center m-5"><a href="{{ route('tutorials.index') }}" class="btn btn-secondary">Browse</a></div>
             @endif
     </div>
 @endsection
